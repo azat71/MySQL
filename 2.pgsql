@@ -191,7 +191,7 @@ programmer=# SELECT * FROM student;
 
 -- ЗАДАНИЕ 6
 -- Узнайте самого молодого студента который знает Java.
-programmer=# SELECT * FROM student WHERE age<20 OR fp_language='JAVA';
+programmer=# SELECT age FROM student WHERE age=(SELECT MIN(age) FROM student) OR fp_language='JAVA' OR sp_language='JAVA';
  id | name  | age | fp_language | sp_language 
 ----+-------+-----+-------------+-------------
   4 | ERMEK |  16 | JAVA        | C
